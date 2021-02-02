@@ -14,7 +14,7 @@ services:
     environment:
     - MYSQL_USER=app
     - MYSQL_PASSWORD=pass
-    - MUSQL_DATABASE=app
+    - MYSQL_DATABASE=app
 
   postgres_service:
     image: library/postgres:12-alpine
