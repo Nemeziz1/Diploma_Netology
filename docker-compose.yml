@@ -9,9 +9,8 @@ services:
     image: library/mysql:8.0.18
     ports:
     - '3306:3306'
-    volumes:
-    - ./data:/var/lib/mysql
     environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
     - MYSQL_USER=app
     - MYSQL_PASSWORD=pass
     - MYSQL_DATABASE=app
@@ -20,8 +19,6 @@ services:
     image: library/postgres:12-alpine
     ports:
       - '5432:5432'
-    volumes:
-      - ./data:/var/lib/posgresql
     environment:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass

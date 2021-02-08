@@ -8,13 +8,12 @@ import static io.restassured.RestAssured.when;
 public class APITests {
     @Test
     void shouldReturnOK() {
-        /*given()
+        given()
                 .baseUri("http://localhost:8080")
-
         .when()
-            .post("")
+            .post("/api/v1/pay")
         .then()
             .statusCode(200)
-        ;*/
+        ;
     }
 }
