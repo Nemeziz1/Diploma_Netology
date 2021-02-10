@@ -1,11 +1,11 @@
 package ru.netology.web.data;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
+@NoArgsConstructor
 public class DataHelper {
-    private DataHelper() {
-    }
 
     @Value
     public static class PaymentGateInfo {
