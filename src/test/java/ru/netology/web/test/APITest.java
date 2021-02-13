@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
 import static ru.netology.web.api.API.APIPaymentGateApprovedCard;
 
-public class APITests {
+public class APITest {
     @Test
     void PaymentGateApprovedCard() {
         val approvedCard = DataHelper.getSuccessPayData();
