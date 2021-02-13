@@ -16,14 +16,47 @@ public class API {
             .log(LogDetail.ALL)
             .build();
 
-    public static String APIPaymentGateApprovedCard (DataHelper.PayInfo payInfo) {
+    public static String APIPaymentGateApprovedCard (DataHelper.APIPayInfo apiPayInfo) {
       return given()
                 .spec(requestSpec)
-                .body(payInfo)
-            .when()
+                .body(apiPayInfo)
+        .when()
                 .post("/api/v1/pay")
-            .then()
+        .then()
               .statusCode(200)
               .extract().response().asString();
+    }
+
+    public static String APIPaymentGateDeclinedCard (DataHelper.APIPayInfo apiPayInfo) {
+        return given()
+                .spec(requestSpec)
+                .body(apiPayInfo)
+        .when()
+                .post("/api/v1/pay")
+        .then()
+                .statusCode(200)
+                .extract().response().asString();
+    }
+
+    public static String APICreditGateApprovedCard (DataHelper.APIPayInfo apiPayInfo) {
+        return given()
+                .spec(requestSpec)
+                .body(apiPayInfo)
+        .when()
+                .post("/api/v1/credit")
+        .then()
+                .statusCode(200)
+                .extract().response().asString();
+    }
+
+    public static String APICreditGateDeclinedCard (DataHelper.APIPayInfo apiPayInfo) {
+        return given()
+                .spec(requestSpec)
+                .body(apiPayInfo)
+        .when()
+                .post("/api/v1/credit")
+        .then()
+                .statusCode(200)
+                .extract().response().asString();
     }
 }
