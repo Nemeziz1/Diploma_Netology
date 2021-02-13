@@ -8,7 +8,7 @@ import static ru.netology.web.api.API.APIPaymentGateApprovedCard;
 
 public class APITest {
     @Test
-    void PaymentGateApprovedCard() {
+    void paymentGateApprovedCard() {
         val approvedCard = DataHelper.getSuccessPayData();
         val apiResult = APIPaymentGateApprovedCard(approvedCard);
         Assertions.assertTrue(apiResult.contains("APPROVED"));
