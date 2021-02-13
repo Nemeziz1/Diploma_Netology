@@ -1,5 +1,7 @@
 package ru.netology.web.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.junit.jupiter.api.*;
 import ru.netology.web.data.DataHelper;
@@ -13,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Test {
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
     @BeforeEach
     void setUp() throws SQLException {
@@ -378,5 +384,10 @@ public class Test {
         creditGatePage.failureEmptyFields();
         SQL.insertEmptyNoCardCreditGate();
         assertEquals("", SQL.getCardStatusCreditGate(SQL.getCreditTable()));
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 }
